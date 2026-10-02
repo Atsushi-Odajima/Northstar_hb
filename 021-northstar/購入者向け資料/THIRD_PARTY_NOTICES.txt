@@ -1,0 +1,29 @@
+THIRD PARTY NOTICES — Northstar
+
+本ソフトウェアは以下のオープンソースソフトウェアを利用しています（主要なもの。完全な一覧は package.json / pnpm-lock.yaml を参照）。
+
+Runtime
+  react, react-dom — MIT (Meta Platforms, Inc.)
+  react-router — MIT (Remix Software)
+  @tanstack/react-query — MIT (Tanner Linsley)
+  hono, @hono/node-server — MIT (Yusuke Wada and Hono contributors)
+  zod — MIT (Colin McDonnell)
+  idb — ISC (Jake Archibald)
+  workbox-window / workbox-build — MIT (Google LLC)
+  vite-plugin-pwa — MIT (Anthony Fu)
+  @anthropic-ai/sdk — MIT (Anthropic, PBC)
+  @modelcontextprotocol/server, @modelcontextprotocol/hono — MIT (Anthropic, PBC / MCP contributors)
+  web-push — MPL-2.0 (web-push-libs contributors)
+  Node.js（node:sqlite / SQLite） — MIT (Node.js contributors) / Public Domain (SQLite)
+
+Development
+  vite — MIT, typescript — Apache-2.0, vitest — MIT, @playwright/test — Apache-2.0, esbuild — MIT, tsx — MIT
+
+Fonts
+  UI は OS 標準フォント（system-ui / Hiragino Sans / Noto Sans JP 等）を使用します。
+  ロゴ / ワードマークの推奨書体は Inter（SIL Open Font License 1.1, https://github.com/rsms/inter）。
+  本製品にはフォントファイルを同梱していません。Inter を self-host する場合は OFL のライセンス文を同梱してください。
+
+Icons
+  ナビゲーション記号は Unicode 文字を使用（外部アイコンセット不使用）。
+  ロゴ・PWA アイコン・OG 画像は本製品のオリジナル（branding/）。

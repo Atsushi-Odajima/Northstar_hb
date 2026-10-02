@@ -1,0 +1,24 @@
+# Render.com blueprint (example). Deploying is a human decision — see docs/OPERATIONS.md.
+services:
+  - type: web
+    name: northstar
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    disk:
+      name: northstar-data
+      mountPath: /data
+      sizeGB: 5
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SECURE_COOKIES
+        value: "true"
+      - key: ALLOW_SIGNUP
+        value: "true"
+      - key: APP_ORIGIN
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false

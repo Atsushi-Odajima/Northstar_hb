@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Northstar">
+  <title>Northstar mark</title>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#1f3a93" stroke-width="2" opacity=".35"/>
+  <path d="M32 6 L36.5 27.5 L58 32 L36.5 36.5 L32 58 L27.5 36.5 L6 32 L27.5 27.5 Z" fill="#1f3a93"/>
+  <circle cx="32" cy="32" r="3.2" fill="#ffffff"/>
+</svg>

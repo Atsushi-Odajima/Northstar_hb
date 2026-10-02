@@ -1,0 +1,16 @@
+Weekly Big 3 と Today's One Thing
+
+Weekly Big 3
+  今週（月曜始まり）に進める 3 件。Goal / Project / Action に紐付けられます。
+  Weekly Review の「NEXT WEEK」で来週分を決めるのが基本。Today からも確認・完了できます。
+  4 件目は追加できません（最大 3 件ルール）。1 件を外すか「やめる」にしてから追加してください。
+  先週の未完了は「持ち越し候補」として表示されます。
+
+Today's One Thing
+  今日これが進めば良い日、と言える 1 つ。Today 画面の一番上で決めます。
+  Why（North Star とのつながり）を書くと Focus Mode に表示されます。
+  Focus Mode（/focus）は One Thing・Why・Goal の連鎖・次 Action・関連する学び/人だけを表示します。タイマーは任意。
+
+Today 画面に出るもの（優先順）
+  One Thing → Big 3 → North Star → 期限の Action → Follow-up / 約束 → 見直し（Decision Review・停滞 North Star）→ 予定 / 返事待ち → Quick Capture
+  Todo の消化よりも「重要な行動」を上に出す設計です。

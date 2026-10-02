@@ -15,7 +15,7 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": { "@shared/*": ["./shared/*"], "@/*": ["./web/src/*"] },
-    "types": ["vite/client", "vite-plugin-pwa/react"]
+    "types": ["vite/client", "vite-plugin-pwa/client", "vite-plugin-pwa/react"]
   },
   "include": ["web/src", "shared", "web/vite.config.ts", "web/sw.ts"]
 }

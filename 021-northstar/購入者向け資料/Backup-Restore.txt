@@ -1,0 +1,18 @@
+Backup / Restore
+
+バックアップ
+  Settings → Export / Backup →「今すぐバックアップ」。サーバーの BACKUP_DIR に JSON を保存し、一覧からダウンロードできます。
+  ファイルには schemaVersion / appVersion / generatedAt / 各テーブル件数 / checksum が含まれます。
+  含まれるもの: Goals / Outcomes / Projects / Actions / Big 3 / Daily Focus / Captures / Decisions / Decision Reviews / Reviews / People / Contacts / Promises / Follow-ups / Knowledge / Relations / Principles / Experiments / Metrics / Calendar / 通知 / AI 利用履歴 / Settings
+  含まれないもの: パスワード・セッション・API token・AI index（復元後に再生成）・Push 購読
+
+復元
+  Settings → Restore でファイルを選ぶと、まず「検証」が走ります（形式 / バージョン / checksum / 参照整合）。
+  検証に失敗した場合、現在のデータは一切変更されません。
+  merge: 既存データを残し、無い id だけ追加
+  replace: 現在の workspace データをすべて置き換え（確認あり）
+  復元後、検索 index は自動で再構築されます。AI index は次回の AI 利用時に差分で再生成されます。
+
+おすすめ運用
+  週 1 回のバックアップ + ダウンロードして別の場所に保管。運用者はサーバーの DB ファイル（/data/northstar.db）のコピーも定期的に。
+  保持期間: サーバー上のバックアップは自動では削除されません。不要になった世代は運用者が削除してください。

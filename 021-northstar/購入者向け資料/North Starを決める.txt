@@ -1,0 +1,22 @@
+North Star を決める
+
+North Star = 今 Quarter / 今月で「これが進めば前進」と言える最重要 Goal（1〜3 件）。
+Goals 画面で Goal を開き「★ 最重要 Goal にする」を選ぶか、作成時に指定します。
+
+決め方
+  1. Vision から Year → Quarter → Month へと具体化する（階層は Goals 画面で確認）。
+  2. Goal には「成功の定義」と「Why」を 1 行ずつ。
+  3. 進捗の測り方を選ぶ
+       Manual: 自分で % を記録
+       Milestone: Outcome の達成率
+       Binary: 達成 / 未達
+       Linked Outcomes: 全 Outcome 達成で 100%（それまでは 99% 上限）
+  4. Outcome（観測できる成果）を 1〜3 個追加する。例: 販売ページ公開 / 初回購入。
+
+健康状態の見方
+  前進中 … 21 日以内に Outcome 達成か進捗記録あり
+  作業のみ … Task は完了しているが Outcome / 進捗の記録がない（「順調」ではありません）
+  停滞 … 21 日以上シグナルなし
+  記録なし … まだ何も記録がない
+
+Active Goal が 12 件を超えると「多すぎる」警告が出ます。Pause / Archive を活用してください。

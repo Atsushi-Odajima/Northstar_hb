@@ -1,0 +1,21 @@
+AI Chief of Staff（AI 参謀）
+
+あなたの Goal・Decision・People・Knowledge・Review を横断して、根拠つきで整理する参謀です。
+※ 既定では OFF。Settings → AI & Privacy で provider を選んで有効化します。
+
+質問例
+  今週何に集中すべき？ / 最近止まっている目標は？ / 見直し時期の Decision は？
+  最近連絡していない重要人物は？ / ProofFlow に使えそうな過去の学びは？
+  今月の行動は Quarter Goal と合ってる？ / 約束したまま放置していることは？
+
+回答の特徴
+  ・事実には必ず [#n] の引用がつき、クリックすると元の記録に飛びます。
+  ・記録にないことは「見つからない」と答え、存在しない記録を作りません。
+  ・判断はあなたのもの。選択肢とトレードオフを整理し、「次に見るべき 1 件」を提案するまでです。
+  ・人物の性格や意図は評価しません。
+  ・根拠となる記録がゼロのときは AI を呼び出しません（コストもかかりません）。
+
+ChatGPT / Claude から使う（MCP）
+  Settings → Plugin/MCP で API token を発行すると、ChatGPT（Developer mode の Connectors）や Claude から Northstar の tools を呼べます。
+  読み取り tools（今日の Focus / Big 3 / 検索 / 人物 Brief / 関連する学び）と、確認つきの書き込み tools（Capture / Goal(draft) / Decision / Follow-up / Big 3 / Review 下書き）。
+  書き込みは必ず「確認してから」実行されます。Goal の削除や Decision 結果の勝手な確定はできません。

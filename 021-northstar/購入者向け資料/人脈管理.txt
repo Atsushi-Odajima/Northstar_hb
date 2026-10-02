@@ -1,0 +1,19 @@
+人脈管理（People）— 会って終わりにしない
+
+People に登録 → 接点を記録 → 約束と Follow-up を残す → 会う前に Brief を見る。
+
+人物
+  名前 / 組織 / 役割 / 関係 / 重要度（1 が最重要）/ タグ / 出会い / メモ
+接点（Contact）
+  日付 / 種類（meeting・call・message…）/ 何を話した / 次のステップ
+  同時に「自分が約束したこと」「相手からの返事待ち」「Follow-up 日と理由」を登録できます。
+Promise Tracker
+  自分の約束（mine）と返事待ち（theirs）を Today と Weekly Review に表示。
+Follow-up
+  期限が来ると Today・通知に表示。
+会う前の Brief
+  前回の接点、最近の話題、自分の約束、返事待ち、未完了 Follow-up、関連 Goal / Project / 判断を事実だけで表示します。
+  相手の性格や意図は推定しません。
+
+重要度 1〜2 の人と 30 日以上接点がないと、一覧と Weekly Review に表示されます。
+同名の人物は自動では統合しません（候補として表示するだけ）。CSV 取り込みでも同じです。

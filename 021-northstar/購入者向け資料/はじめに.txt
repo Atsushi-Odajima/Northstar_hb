@@ -1,0 +1,33 @@
+Northstar — Personal Strategy OS
+人生にも、経営戦略を。
+
+■ Northstar とは
+Todo アプリでも、日記でも、連絡先帳でもありません。
+「忙しかったか」ではなく「自分が重要だと決めた方向へ、本当に前進したか」を見えるようにする、あなた専用の戦略 OS です。
+
+  目標（Vision → Year → Quarter → Month → Week）
+  今週やること（Weekly Big 3）と今日の One Thing
+  意思決定（Decision Journal：理由・前提・確信度・見直し）
+  人脈（People：接点・約束・Follow-up・会う前の Brief）
+  学び（Knowledge：保存で終わらせず行動へ）
+  振り返り（Daily / Weekly / Monthly / Quarterly Review）
+  AI 参謀（AI Chief of Staff：あなたの記録を根拠つきで整理。既定 OFF）
+
+■ 3 つの約束
+  1. あなたのデータは、あなた専用の private workspace に保存されます。
+  2. AI は OFF から始まり、何を送るかはあなたが決めます。
+  3. いつでも全データを JSON / Markdown / CSV で持ち出せます（ロックインしません）。
+
+■ 使える環境
+  PC ブラウザ（Chrome / Edge / Safari / Firefox）
+  iPhone Safari（ホーム画面に追加して PWA として利用）
+  Android Chrome（インストール可能）
+  iPad
+
+■ 同梱資料
+  最初の30分.txt / North Starを決める.txt / Weekly Big3.txt / Decision Journal.txt / Weekly Review.txt
+  人脈管理.txt / 学びを行動につなげる.txt / AI Chief of Staff.txt / AIとプライバシー.txt
+  スマホ-PWA.txt / データExport.txt / Backup-Restore.txt / 運用コスト.txt / 注意事項.txt / THIRD_PARTY_NOTICES.txt
+
+■ 開発者向け
+  セットアップ・運用・設計は 021-northstar/docs/ を参照してください（README.md から）。

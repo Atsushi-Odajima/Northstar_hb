@@ -1,0 +1,19 @@
+学びを行動につなげる（Knowledge）
+
+記事・本・動画・Podcast・PDF・講座・AI との会話・アイデアを「保存して終わり」にしないための流れ:
+
+  1. Capture       … タイトルと URL だけでも OK（Quick Capture からも）
+  2. 何を学んだ？   … 要約・Key Ideas
+  3. なぜ重要？     … Personal Meaning（あなたにしか書けない欄）
+  4. どの Goal？    … Goal / Project にリンク
+  5. 何をする？     … Next Action →「Action を作る」でタスク化
+  6. 使った？       … Applied にして一言メモ
+
+Knowledge 画面の「行動に移す」タブは、Next Action が決まっていてまだ使っていない学びの一覧です。Today / Dashboard / Weekly Review にも出ます。
+
+AI の下書き（AI ON のときだけ）
+  要約・Key Ideas・Goal 候補・Action 候補を「下書き」として提案します。採用する項目だけを選んで反映します。
+
+AI チャットの取り込み
+  ChatGPT / Claude の会話は、あなたが明示的に書き出した（export）ファイルだけを Settings → Import から取り込みます。
+  Northstar が勝手に会話を取得することはありません。候補（決めたこと / 学び / アイデア / やること / 問い）を確認してから保存します。出典（会話名とメッセージ位置）が残ります。

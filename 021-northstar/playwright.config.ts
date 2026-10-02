@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
 
 const PORT = 8790;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -17,6 +19,7 @@ export default defineConfig({
     baseURL: BASE,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    launchOptions: { args: ["--no-sandbox"], executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || (require("node:fs").existsSync("/opt/pw-browsers/chromium-1194/chrome-linux/chrome") ? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" : undefined) },
   },
   webServer: {
     command: `node dist/server/index.mjs`,

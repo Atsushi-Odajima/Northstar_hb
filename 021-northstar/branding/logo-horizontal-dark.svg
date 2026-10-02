@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" width="360" height="72" role="img" aria-label="Northstar">
+  <title>Northstar (dark)</title>
+  <g transform="translate(4,4)">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#9fb3ff" stroke-width="2" opacity=".4"/>
+    <path d="M32 6 L36.5 27.5 L58 32 L36.5 36.5 L32 58 L27.5 36.5 L6 32 L27.5 27.5 Z" fill="#e8ecf5"/>
+    <circle cx="32" cy="32" r="3.2" fill="#0f1420"/>
+  </g>
+  <text x="84" y="46" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="650" letter-spacing="-0.5" fill="#e8ecf5">Northstar</text>
+  <text x="86" y="64" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11" letter-spacing="2.5" fill="#a3acbf">PERSONAL STRATEGY OS</text>
+</svg>

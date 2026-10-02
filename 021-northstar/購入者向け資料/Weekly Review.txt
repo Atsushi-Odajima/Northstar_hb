@@ -1,0 +1,16 @@
+Weekly Review — CEO Meeting with Yourself
+
+週に一度、自分自身と経営会議を開きます（20〜40 分）。Review 画面 → Weekly。
+
+THIS WEEK（データは自動で集まります。期間外のデータは混ざりません）
+  North Star Progress / Stalled Goals / Decisions（記録・レビュー・見直し期限）/ Follow-ups & Promises / Knowledge → Action / Open Loops & Waiting / 時間配分
+
+NEXT WEEK（あなたが書く）
+  やめること（Stop）/ 続けること（Continue）/ 始めること（Start）/ 来週の Big 3
+
+質問例
+  重要なことは進んだ？根拠は？ / 何に時間を使いすぎた？ / 今週の判断で記録すべきものは？ / 学びを行動に移せたものは？
+
+完了すると、その週のデータが「スナップショット」として保存され、Markdown で書き出せます（PDF はブラウザの印刷から）。
+質問テンプレートは Settings → Profile で Founder / Freelancer / Creator / Manager / Investor から選べます。変更しても過去の Review は変わりません。
+Daily（30 秒〜3 分）、Monthly、Quarterly も同じ場所から。全部やる必要はありません。

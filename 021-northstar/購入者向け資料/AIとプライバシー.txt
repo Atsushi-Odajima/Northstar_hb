@@ -1,0 +1,27 @@
+AI とプライバシー
+
+■ 既定
+  AI は OFF です。Northstar の主要機能は AI なしで全部使えます。
+
+■ AI を ON にしたとき、何が送られる？
+  質問に関係する記録の「抜粋」だけ（タイトル + 短い要約 + 日付）。workspace 全体は送りません。
+  送る前に、AI 画面に provider / model / 今月の利用額 / 送らないカテゴリが常に表示されます。
+
+■ 送らないカテゴリ（Settings → AI & Privacy）
+  Journal（既定で除外）/ People（人物・接点・約束・Follow-up）/ Decisions / Reviews / Knowledge / Goals
+  除外したカテゴリは検索結果にも、semantic 用の index にも使われません。
+
+■ 削除
+  記録を削除すると、検索 index と AI index からも同時に削除されます。
+  Settings → AI から AI index をまとめて削除できます。AI との会話履歴も削除できます。
+  アカウント削除で全データ（検索 index・AI index・token・セッション含む）が消えます。
+
+■ provider と費用
+  Anthropic（Claude）/ OpenAI 互換 / テスト用 mock（外部送信なし）。API key はサーバー側だけに置き、ブラウザには出ません。
+  月間上限（USD）を設定でき、到達すると AI 呼び出しを止めます。
+
+■ 取り込んだ文章に命令が含まれていたら？
+  Northstar は取り込んだ記事やチャットの文章を「データ」として扱うよう AI に指示し、AI には記録を書き換える権限がありません。
+
+■ ログ
+  サーバーのログに Goal / Decision / People / Journal の本文は出しません。分析（Analytics）への本文送信もありません。

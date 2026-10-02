@@ -1,0 +1,11 @@
+注意事項
+
+・Northstar は自己管理のための道具です。医療・心理診断・金融投資助言・法的助言を行いません。Investor 向けの質問テンプレートも金融助言ではありません。
+・Experiment（自己実験）は自己観察の記録であり、科学的な因果関係を保証しません。
+・AI の回答は、あなたの記録に基づく整理であり、重要な判断（人生・投資・医療・人間関係）を代行するものではありません。AI は性格・能力・心理を評価しません。
+・AI provider（Anthropic / OpenAI 等）の利用には各社の利用規約・料金が適用されます。API key と費用はご自身の管理となります。
+・カレンダー連携は ICS ファイル / URL の取り込みのみです。繰り返し予定は 1 回分として取り込まれ、タイムゾーン付き（TZID）の時刻はオフセットを適用しません。Google / Microsoft / Gmail / GitHub / Notion / Readwise との直接連携は将来機能であり、本バージョンには含まれません。
+・MCP（ChatGPT / Claude からの接続）を公開インターネット経由で使うには HTTPS で配信されたサーバーが必要です。ChatGPT 側の Apps / Connectors の提出・審査要件は各社の最新情報を確認してください。
+・iOS Safari の実機検証は本開発環境では行えなかったため、Chromium によるエミュレーションで確認しています（詳細: docs/TEST_REPORT.md）。
+・本ソフトウェアは現状有姿で提供されます。重要データは定期的に Backup してください。
+・製品名「Northstar」および「CEO Meeting with Yourself」は、販売前に商標・類似サービスの確認が必要です（docs/SOURCE_NOTES.md、RELEASE_CHECKLIST.md）。

@@ -1,0 +1,24 @@
+スマホ / PWA で使う
+
+iPhone（Safari）
+  1. Safari で Northstar を開く
+  2. 共有ボタン →「ホーム画面に追加」
+  3. ホーム画面のアイコンから起動（全画面 / standalone）
+  Push 通知はホーム画面に追加した PWA でのみ利用できます（iOS 16.4+）。
+
+Android（Chrome）
+  アドレスバーの「インストール」または「ホーム画面に追加」。
+
+PC（Chrome / Edge）
+  アドレスバーのインストールアイコン。
+
+スマホで主に使う画面
+  Today / Big 3 / Quick Capture（右下の ＋）/ People / Decision / Daily Review / AI
+  下部タブ: Today・Capture・People・Decision・More
+
+オフライン
+  Quick Capture はオフラインでも端末に保存され、接続時に自動で同期します（同じ下書きが二重に登録されることはありません。サーバー側の既存データを上書きすることもありません）。
+  Today / 直近の Review は最後に表示した内容を一定期間オフラインでも表示します。AI はオンライン専用です。
+
+通知
+  Settings → 通知 で Morning Brief / Evening Reflection / Weekly Review / Decision Review / Follow-up / 約束 を個別に ON/OFF。Quiet hours あり。同じ通知は 1 回だけ届きます。

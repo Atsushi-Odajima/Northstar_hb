@@ -1,0 +1,16 @@
+データ Export
+
+Settings → Export / Backup から:
+  全データ JSON（Northstar Backup 形式。別環境に Restore 可能）
+  Goals Markdown / Decisions Markdown / Reviews Markdown / Knowledge Markdown
+  People CSV（UTF-8 BOM 付き、Excel で開けます）
+  各 Review 画面からも Markdown を書き出せます。PDF はブラウザの印刷（Cmd/Ctrl+P → PDF 保存）で作成します。
+
+Import（Settings → Import）
+  People CSV / Goals CSV（status は draft で取り込み、勝手に Active にしません）/ Knowledge CSV / Decisions CSV
+  Markdown（Notion / Obsidian の書き出し。見出しごとに Knowledge）
+  AI チャット export（ChatGPT / Claude の JSON、または user:/assistant: 形式のテキスト）
+  Northstar JSON（merge: 既存を残し、無い id だけ追加）
+  流れ: プレビュー → 列の対応（mapping）→ 重複候補の確認 → 取り込む行を選択 → 確定。確定するまで何も保存されません。
+
+AI provider には依存しません。すべて標準的な形式で持ち出せます。
