@@ -37,7 +37,22 @@
 手動基準: すべての入力に label、チェックボタンに aria-label、モーダルに role=dialog/aria-modal、タブに role=tab/aria-selected、通知領域に aria-live、キーボードフォーカス可視（:focus-visible）。スクリーンリーダー実機は未検証。
 
 ## 4. 性能（生成データ）— `pnpm test:perf`
-PLACEHOLDER_PERF
+10 年分想定の生成データ（goals 10,000 / decisions 50,000 / people 5,000 / contacts 100,000 / knowledge 500,000 / reviews ≤10,000 / actions 20,000、検索 doc 665,523 件、DB 約 1 GB）。詳細: docs/PERF_RESULTS.md。**販売保証値ではない。**
+
+| 測定 | v1（index なし） | v2（perf index 追加後） |
+|---|---|---|
+| 全文検索「ProofFlow 販売」（trigram） | 945 ms | 1,011 ms |
+| 全文検索「価格」（2 文字 → LIKE fallback） | 453 ms | 449 ms |
+| 全文検索 knowledge のみ「MCP 設計」 | 463 ms | 506 ms |
+| Today view | 33 ms | 35 ms |
+| Weekly Review summary | 525 ms | 247 ms |
+| Quarterly Review summary（月別集計込み） | 3,988 ms | 685 ms |
+| AI retrieval: structured facts | 5 ms | 216 ms※ |
+| AI retrieval: full（facts + FTS + semantic 差分同期含む） | 2,300 ms | 2,433 ms |
+| embeddings 差分同期（local-lite, 20,000 docs） | 782 ms | 762 ms |
+| semantic search（20,000 vectors, JS cosine） | 35 ms | 23 ms |
+※ 生成直後の初回アクセスでキャッシュが冷えていたため。
+所見: 個人利用規模（数千〜数万 record）では全操作 100 ms 未満。50 万件規模でも検索 ≈1 秒、Review 集計 <1 秒。full-text の trigram 検索は doc 数に比例して伸びるため、数十万件を超える場合は検索対象タイプの絞り込みを推奨。semantic search の JS cosine は数万 vector までが現実的（それ以上は sqlite-vec 等を Pro 版で検討）。
 
 ## 5. 実機・外部確認（未実施 / 人間確認）
 - iPhone Safari / Android Chrome / iPad 実機（ホーム画面追加、standalone、Push）: **未実施**（本環境に実機・WebKit なし）
