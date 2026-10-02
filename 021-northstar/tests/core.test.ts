@@ -237,3 +237,31 @@ describe("Projects / Open loops / Principles / Experiments", () => {
     expect(wk2.metrics.map((x: any) => x.name)).toEqual(["Knowledge→Action"]);
   });
 });
+
+describe("Sync conflicts (required test 19)", () => {
+  it("stale offline edits are rejected with 409 and never overwrite the server copy", async () => {
+    const t = await ctx();
+    const g = ok(await api(t.app, "POST", "/api/goals", { title: "original", level: "month", why: "server why" }, t.cookie), 201).goal;
+    // device A edits online
+    const a = ok(await api(t.app, "PATCH", `/api/goals/${g.id}`, { title: "edited on A", version: 1 }, t.cookie)).goal;
+    expect(a.version).toBe(2);
+    // device B comes back online with a stale version → conflict, server copy untouched
+    const b = await api(t.app, "PATCH", `/api/goals/${g.id}`, { title: "edited offline on B", version: 1 }, t.cookie);
+    expect(b.status).toBe(409);
+    expect(b.json.error.details.current.title).toBe("edited on A");
+    const after = ok(await api(t.app, "GET", `/api/goals/${g.id}`, undefined, t.cookie)).goal;
+    expect(after.title).toBe("edited on A");
+    expect(after.why).toBe("server why"); // untouched fields are not reset by the PATCH
+    // same for people and knowledge
+    const p = ok(await api(t.app, "POST", "/api/people", { name: "P" }, t.cookie), 201).person;
+    ok(await api(t.app, "PATCH", `/api/people/${p.id}`, { role: "CTO", version: 1 }, t.cookie));
+    expect((await api(t.app, "PATCH", `/api/people/${p.id}`, { role: "stale", version: 1 }, t.cookie)).status).toBe(409);
+    // offline capture queue: the same clientId replayed twice creates one record and never overwrites the first
+    const c1 = await api(t.app, "POST", "/api/captures/sync", { items: [{ rawText: "first text", clientId: "dev-1" }] }, t.cookie);
+    const c2 = await api(t.app, "POST", "/api/captures/sync", { items: [{ rawText: "changed text", clientId: "dev-1" }] }, t.cookie);
+    expect(c1.json.results[0].status).toBe("created");
+    expect(c2.json.results[0].status).toBe("duplicate");
+    const inbox = ok(await api(t.app, "GET", "/api/captures", undefined, t.cookie)).captures;
+    expect(inbox.find((c: any) => c.clientId === "dev-1").rawText).toBe("first text");
+  });
+});

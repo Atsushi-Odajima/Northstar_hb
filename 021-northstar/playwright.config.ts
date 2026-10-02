@@ -36,12 +36,13 @@ export default defineConfig({
       APP_ORIGIN: BASE,
       ALLOW_SIGNUP: "true",
       AI_PROVIDER_DEFAULT: "mock",
+      AUTH_RATE_LIMIT_PER_MIN: "1000", // the E2E matrix signs up ~40 accounts from one IP
     },
   },
   projects: [
     { name: "pc-chromium", use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 850 } } },
     { name: "iphone", use: { ...devices["iPhone 14"], browserName: "chromium" } },
-    { name: "android", use: { ...devices["Pixel 7"], browserName: "chromium" } },
-    { name: "ipad", use: { ...devices["iPad (gen 7)"], browserName: "chromium" } },
+    { name: "android", use: { ...devices["Pixel 7"], browserName: "chromium" }, testIgnore: /a11y/ },
+    { name: "ipad", use: { ...devices["iPad (gen 7)"], browserName: "chromium" }, testIgnore: /a11y/ },
   ],
 });

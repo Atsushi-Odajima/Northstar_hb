@@ -1,0 +1,12 @@
+NEXT_STEPS — 販売前に人間が行うこと（優先順）
+
+1. 名称確認: 「Northstar」「CEO Meeting with Yourself」の商標・類似サービス調査 → 必要なら候補名から決定（docs/SOURCE_NOTES.md §5）
+2. 実機確認: iPhone Safari（ホーム画面追加 / standalone / Quick Capture オフライン→同期 / Push）、Android Chrome、iPad
+3. AI provider 疎通: ANTHROPIC_API_KEY（または OPENAI_API_KEY）を設定し、Settings → AI で有効化 → Chief of Staff を 5 問 → 1 問あたりコスト実測 → OPERATING_COSTS.md 更新
+4. 公式情報の再確認（本環境で到達不可だったもの）: OpenAI 価格/モデル名、ChatGPT Apps SDK 提出要件、Anthropic 価格、MCP 2026-07-28 変更点
+5. デプロイ: Dockerfile / render.yaml で staging → SESSION_SECRET / SECURE_COOKIES / APP_ORIGIN 設定 → /api/health 確認 → 自分のアカウント作成後 ALLOW_SIGNUP=false
+6. バックアップ運用の決定: BACKUP_DIR の世代管理、DB ファイルの外部保管
+7. 販売ページ: 一般語（目標 / 今週やること / 意思決定 / 人脈 / 学び / 振り返り / AI 参謀）→ 専門用語の順。AI_PRIVACY と注意事項を転記
+8. 任意: @axe-core/playwright による自動 a11y スキャンの追加、実 WebKit での E2E、sqlite-vec による大規模 semantic search（Pro 版）
+
+開発を再開する場合: docs/DEVELOPMENT.md → pnpm install → pnpm dev。テスト: pnpm test / pnpm build && pnpm test:e2e。

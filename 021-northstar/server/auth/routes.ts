@@ -28,7 +28,7 @@ const ipOf = (c: { req: { header: (n: string) => string | undefined } }) =>
 
 authRoutes.post("/signup", async (c) => {
   if (!config.allowSignup) throw forbidden("新規登録は無効化されています");
-  const rl = rateLimit(`signup:${ipOf(c)}`, 10, 60_000);
+  const rl = rateLimit(`signup:${ipOf(c)}`, config.authRateLimitPerMin, 60_000);
   if (!rl.ok) throw tooMany();
   const body = await parseBody(c, SignupSchema);
   const db = c.get("db");
@@ -48,7 +48,7 @@ authRoutes.post("/signup", async (c) => {
 });
 
 authRoutes.post("/login", async (c) => {
-  const rl = rateLimit(`login:${ipOf(c)}`, 10, 60_000);
+  const rl = rateLimit(`login:${ipOf(c)}`, config.authRateLimitPerMin, 60_000);
   if (!rl.ok) throw tooMany("ログイン試行が多すぎます。1分後に再試行してください");
   const body = await parseBody(c, LoginSchema);
   const db = c.get("db");

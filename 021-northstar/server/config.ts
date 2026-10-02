@@ -42,6 +42,7 @@ export const config = {
   backupDir: env.BACKUP_DIR ?? "./data/backups",
   logLevel: env.LOG_LEVEL ?? "info",
   sessionDays: 30,
+  authRateLimitPerMin: Number(env.AUTH_RATE_LIMIT_PER_MIN ?? 10),
   webDist: env.WEB_DIST ?? path.resolve(process.cwd(), "dist/web"),
   appVersion: "0.1.0",
 };
