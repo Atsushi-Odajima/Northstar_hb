@@ -1,0 +1,12 @@
+node_modules/
+dist/
+data/*.db
+data/*.db-*
+data/backups/
+.env
+.env.local
+playwright-report/
+test-results/
+coverage/
+*.log
+.DS_Store

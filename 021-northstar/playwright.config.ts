@@ -1,0 +1,44 @@
+import { defineConfig, devices } from "@playwright/test";
+
+const PORT = 8790;
+const BASE = `http://127.0.0.1:${PORT}`;
+
+// Only Chromium is installed in this environment; iOS Safari / Android Chrome are emulated
+// (viewport, UA, touch). Real-device verification is tracked in docs/TEST_REPORT.md.
+export default defineConfig({
+  testDir: "./e2e",
+  timeout: 90_000,
+  expect: { timeout: 10_000 },
+  fullyParallel: false,
+  workers: 1,
+  retries: 0,
+  reporter: [["list"], ["html", { open: "never" }]],
+  use: {
+    baseURL: BASE,
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+  },
+  webServer: {
+    command: `node dist/server/index.mjs`,
+    url: `${BASE}/api/health`,
+    reuseExistingServer: false,
+    timeout: 60_000,
+    env: {
+      PORT: String(PORT),
+      HOST: "127.0.0.1",
+      NODE_ENV: "test",
+      NORTHSTAR_DB: "./data/e2e.db",
+      NORTHSTAR_RESET_DB: "true",
+      SESSION_SECRET: "e2e-secret-e2e-secret-e2e-secret-1234567890",
+      APP_ORIGIN: BASE,
+      ALLOW_SIGNUP: "true",
+      AI_PROVIDER_DEFAULT: "mock",
+    },
+  },
+  projects: [
+    { name: "pc-chromium", use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 850 } } },
+    { name: "iphone", use: { ...devices["iPhone 14"], browserName: "chromium" } },
+    { name: "android", use: { ...devices["Pixel 7"], browserName: "chromium" } },
+    { name: "ipad", use: { ...devices["iPad (gen 7)"], browserName: "chromium" } },
+  ],
+});
