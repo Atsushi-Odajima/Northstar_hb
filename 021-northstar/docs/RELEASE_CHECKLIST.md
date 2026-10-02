@@ -18,6 +18,7 @@
 - [ ] `pnpm test` / `pnpm test:e2e` / `pnpm test:perf` が緑（TEST_REPORT.md）。
 - [ ] iPhone Safari / Android Chrome / iPad の実機で: ホーム画面追加、standalone 表示、Quick Capture オフライン→同期、通知（Push は VAPID 設定時）。
 - [ ] Node 22 LTS 以降での node:sqlite 警告の扱い（起動ログ）。
+- [ ] `docker build` の実行確認（本開発環境では Docker daemon が無く未検証）と `/api/health` 応答。
 - [ ] 外部セキュリティレビュー（任意）: SECURITY.md の既知制限（2FA なし、パスワードリセットメールなし）を販売ページに明記。
 
 ## AI

@@ -14,7 +14,8 @@
 | Hono 4.13 + @hono/node-server 1.19 | Node >=16.9 | npm registry | 確認済 |
 | zod 4.6.5 | zod v4 API（`z.email()`, `z.iso.date()`等） | npm registry | 確認済 |
 | TypeScript 5.9.3 | TS 7.0 (native) は最新だがツールチェーン互換性のため 5.9 系固定 | npm registry | 確認済 |
-| Vitest 3.2.7 / Playwright 1.63.0 | 環境に Chromium 1194 (Playwright 1.63 対応) のみ同梱。WebKit/Firefox は未インストール → iOS Safari は **エミュレーション**のみ | 実測 | 確認済 |
+| Vitest 3.2.7 / Playwright 1.63.0 | 環境に同梱の Chromium は build 1194（Playwright 1.63 が要求する 1243 とは別）。`executablePath` で明示指定して利用。WebKit/Firefox は未インストール → iOS Safari は **エミュレーション**のみ | 実測 | 確認済 |
+| @axe-core/playwright 4.13.0 | 自動 a11y スキャン（MPL-2.0） | npm registry | 確認済 |
 | Inter フォント | SIL Open Font License 1.1。商用利用・同梱・再配布可、ライセンス文の同梱が必要。本製品は font file を同梱せず system font stack + 任意で self-host を案内（THIRD_PARTY_NOTICES に記載） | https://github.com/rsms/inter/blob/master/LICENSE.txt | 確認済 |
 
 ## 2. AI provider

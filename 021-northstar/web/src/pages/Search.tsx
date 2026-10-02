@@ -19,7 +19,7 @@ export default function Search() {
     <div>
       <PageHeader title="Search" subtitle="Goals / Decisions / People / Contacts / Knowledge / Reviews / Projects を横断して全文検索。" />
       <Card>
-        <form className="inline-form" onSubmit={(e) => { e.preventDefault(); setSubmitted(q.trim()); }}><Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="例: ProofFlow / 先行販売 / MCP" autoFocus /><Button type="submit" variant="primary">検索</Button></form>
+        <form className="inline-form" onSubmit={(e) => { e.preventDefault(); setSubmitted(q.trim()); }}><Input aria-label="検索語" value={q} onChange={(e) => setQ(e.target.value)} placeholder="例: ProofFlow / 先行販売 / MCP" autoFocus /><Button type="submit" variant="primary">検索</Button></form>
         <div className="row" style={{ marginTop: 8 }}>{TYPES.map((t) => <button key={t} type="button" className={`btn btn-sm${types.includes(t) ? " btn-primary" : ""}`} onClick={() => setTypes(types.includes(t) ? types.filter((x) => x !== t) : [...types, t])}>{t}</button>)}
           {canSemantic && <label className="row small" style={{ marginLeft: "auto" }}><input type="checkbox" checked={semantic} onChange={(e) => setSemantic(e.target.checked)} /> Semantic（AI）</label>}
         </div>

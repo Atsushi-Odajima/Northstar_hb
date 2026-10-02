@@ -47,7 +47,7 @@ export default function GoalDetail() {
           {allOutcomesDone && goal.status !== "achieved" && <div className="notice info">すべての Outcome が達成されています。Goal を「達成」にするのはあなたの判断です。</div>}
           {goal.progressMode === "manual" && (
             <div style={{ marginTop: 10 }}>
-              <Field label={`進捗を記録（${progress ?? goal.progressManual}%）`}><input type="range" min={0} max={100} value={progress ?? goal.progressManual} onChange={(e) => setProgress(Number(e.target.value))} style={{ width: "100%" }} /></Field>
+              <Field label={`進捗を記録（${progress ?? goal.progressManual}%）`}><input aria-label="進捗 %" type="range" min={0} max={100} value={progress ?? goal.progressManual} onChange={(e) => setProgress(Number(e.target.value))} style={{ width: "100%" }} /></Field>
               <div className="inline-form"><Input placeholder="何が進んだ？（任意）" value={note} onChange={(e) => setNote(e.target.value)} /><Button onClick={() => logProgress.mutate(progress ?? goal.progressManual)} disabled={logProgress.isPending}>記録</Button></div>
             </div>
           )}

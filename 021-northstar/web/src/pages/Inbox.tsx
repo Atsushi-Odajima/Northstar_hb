@@ -58,7 +58,7 @@ export default function Inbox() {
               <div className="row" style={{ flexDirection: "column", alignItems: "stretch" }}>
                 <Button size="sm" variant="primary" onClick={() => open(c)}>処理</Button>
                 {ai.data?.enabled && ai.data.ready && ai.data.features.capture_classify && <Button size="sm" onClick={() => classify.mutate(c.id)}>AI分類</Button>}
-                <Button size="sm" variant="ghost" onClick={() => update.mutate({ id: c.id, body: { status: "dismissed" } })}>破棄</Button>
+                <Button size="sm" variant="ghost" aria-label="この Capture を破棄" onClick={() => update.mutate({ id: c.id, body: { status: "dismissed" } })}>破棄</Button>
               </div>
             </li>
           ))}</ul>

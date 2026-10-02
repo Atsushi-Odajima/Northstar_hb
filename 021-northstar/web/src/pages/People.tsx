@@ -58,7 +58,7 @@ export default function People() {
         </Card>
       </div>
       <Card>
-        <div className="row" style={{ marginBottom: 10 }}><Input placeholder="名前・組織で検索" value={q} onChange={(e) => setQ(e.target.value)} style={{ maxWidth: 320 }} /><Select value={imp} onChange={(e) => setImp(e.target.value)} style={{ width: 160 }}><option value="">重要度すべて</option><option value="1">1 のみ</option><option value="2">1〜2</option><option value="3">1〜3</option></Select></div>
+        <div className="row" style={{ marginBottom: 10 }}><Input placeholder="名前・組織で検索" value={q} onChange={(e) => setQ(e.target.value)} style={{ maxWidth: 320 }} /><Select aria-label="重要度で絞り込み" value={imp} onChange={(e) => setImp(e.target.value)} style={{ width: 160 }}><option value="">重要度すべて</option><option value="1">1 のみ</option><option value="2">1〜2</option><option value="3">1〜3</option></Select></div>
         {list.isLoading ? <Spinner /> : list.data!.people.length === 0 ? <Empty>人物がいません。</Empty> : (
           <ul className="list">{list.data!.people.map((p) => { const ds = daysSince(p.lastContactAt); return (
             <li key={p.id}><div className="grow"><Link to={`/people/${p.id}`} className="title">{p.name}</Link> <span className="small muted">{p.organization}{p.role ? ` · ${p.role}` : ""}</span><div className="meta row"><Badge tone={p.importance <= 2 ? "accent" : "neutral"}>重要度 {p.importance}</Badge><span>{REL_LABEL[p.relationshipType]}</span><span>最終接点 {fmtDate(p.lastContactAt)}{ds !== null ? `（${ds}日前）` : ""}</span>{p.nextFollowUpAt && <span>次 {p.nextFollowUpAt}</span>}{p.tags.map((t) => <Badge key={t}>{t}</Badge>)}</div></div>{p.importance <= 2 && (ds === null || ds > 30) && <Badge tone="warn">30日以上接点なし</Badge>}</li>

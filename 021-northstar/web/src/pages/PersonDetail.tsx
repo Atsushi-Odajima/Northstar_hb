@@ -55,8 +55,8 @@ export default function PersonDetail() {
         </Card>
         <Card title="約束 / Follow-up">
           <ul className="list">
-            {promises.map((x) => <li key={x.id}><button className={`check${x.status === "done" ? " done" : ""}`} onClick={() => togglePromise.mutate(x)}>{x.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">{x.direction === "mine" ? "自分の約束" : "返事待ち"}: {x.text}</div><div className="meta">{x.dueDate ?? ""} {x.status}</div></div></li>)}
-            {followUps.map((f) => <li key={f.id}><button className={`check${f.status === "done" ? " done" : ""}`} onClick={() => toggleFollow.mutate(f)}>{f.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">Follow-up: {f.reason || "連絡する"}</div><div className="meta">{f.dueDate} {f.status}</div></div></li>)}
+            {promises.map((x) => <li key={x.id}><button className={`check${x.status === "done" ? " done" : ""}`} aria-label="完了切替" onClick={() => togglePromise.mutate(x)}>{x.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">{x.direction === "mine" ? "自分の約束" : "返事待ち"}: {x.text}</div><div className="meta">{x.dueDate ?? ""} {x.status}</div></div></li>)}
+            {followUps.map((f) => <li key={f.id}><button className={`check${f.status === "done" ? " done" : ""}`} aria-label="完了切替" onClick={() => toggleFollow.mutate(f)}>{f.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">Follow-up: {f.reason || "連絡する"}</div><div className="meta">{f.dueDate} {f.status}</div></div></li>)}
           </ul>
           {promises.length + followUps.length === 0 && <p className="small muted">接点を記録するときに約束や Follow-up を追加できます。</p>}
         </Card>

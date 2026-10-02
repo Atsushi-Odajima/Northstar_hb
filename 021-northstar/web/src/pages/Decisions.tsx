@@ -45,7 +45,7 @@ export function DecisionForm({ initial, onSaved, onClose, locked = false }: { in
         <Field label="期待する結果"><Textarea rows={2} value={f.expectedOutcome ?? ""} onChange={(e) => setF({ ...f, expectedOutcome: e.target.value })} disabled={locked} /></Field>
         <Field label="リスク"><Textarea rows={2} value={f.risks ?? ""} onChange={(e) => setF({ ...f, risks: e.target.value })} /></Field>
       </div>
-      <Field label={`確信度 ${f.confidence}%`}><input type="range" min={0} max={100} value={f.confidence} onChange={(e) => setF({ ...f, confidence: Number(e.target.value) })} disabled={locked} style={{ width: "100%" }} /></Field>
+      <Field label={`確信度 ${f.confidence}%`}><input aria-label="確信度 %" type="range" min={0} max={100} value={f.confidence} onChange={(e) => setF({ ...f, confidence: Number(e.target.value) })} disabled={locked} style={{ width: "100%" }} /></Field>
       <div className="grid-2">
         <Field label="関連 Goal"><Select multiple value={f.goalIds} onChange={(e) => setF({ ...f, goalIds: Array.from(e.target.selectedOptions).map((o) => o.value) })} style={{ minHeight: 80 }}>{goals.data?.goals.map((g) => <option key={g.id} value={g.id}>[{g.level}] {g.title}</option>)}</Select></Field>
         <Field label="関係する人"><Select multiple value={f.personIds} onChange={(e) => setF({ ...f, personIds: Array.from(e.target.selectedOptions).map((o) => o.value) })} style={{ minHeight: 80 }}>{people.data?.people.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}</Select></Field>

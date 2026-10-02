@@ -27,10 +27,10 @@ export default function Actions() {
         <div className="grid-2">
           <Field label="追加"><Input placeholder="タイトル" value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} onKeyDown={(e) => e.key === "Enter" && f.title.trim() && add.mutate()} /></Field>
           <div className="row">
-            <Select value={f.kind} onChange={(e) => setF({ ...f, kind: e.target.value })} style={{ width: 140 }}><option value="task">Task</option><option value="open_loop">Open Loop</option><option value="waiting">Waiting</option></Select>
-            <Input type="date" value={f.dueDate} onChange={(e) => setF({ ...f, dueDate: e.target.value })} style={{ width: 160 }} />
-            <Select value={f.goalId} onChange={(e) => setF({ ...f, goalId: e.target.value })} style={{ flex: 1 }}><option value="">Goal（任意）</option>{goals.data?.goals.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</Select>
-            {f.kind === "waiting" && <Input placeholder="誰の返事待ち？" value={f.waitingOn} onChange={(e) => setF({ ...f, waitingOn: e.target.value })} style={{ width: 160 }} />}
+            <Select aria-label="種類" value={f.kind} onChange={(e) => setF({ ...f, kind: e.target.value })} style={{ width: 140 }}><option value="task">Task</option><option value="open_loop">Open Loop</option><option value="waiting">Waiting</option></Select>
+            <Input aria-label="期限" type="date" value={f.dueDate} onChange={(e) => setF({ ...f, dueDate: e.target.value })} style={{ width: 160 }} />
+            <Select aria-label="関連 Goal" value={f.goalId} onChange={(e) => setF({ ...f, goalId: e.target.value })} style={{ flex: 1 }}><option value="">Goal（任意）</option>{goals.data?.goals.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</Select>
+            {f.kind === "waiting" && <Input aria-label="返事待ちの相手" placeholder="誰の返事待ち？" value={f.waitingOn} onChange={(e) => setF({ ...f, waitingOn: e.target.value })} style={{ width: 160 }} />}
             <Button variant="primary" onClick={() => add.mutate()} disabled={!f.title.trim()}>追加</Button>
           </div>
         </div>
@@ -38,10 +38,10 @@ export default function Actions() {
       <Tabs tabs={[{ id: "open", label: "Open" }, { id: "loops", label: "Open Loops / Waiting" }, { id: "done", label: "Done" }]} value={tab} onChange={setTab} />
       {tab === "loops" && loops.data && (
         <div className="grid">
-          <Card title={`Open Loops (${loops.data.openLoops.length})`}>{loops.data.openLoops.length === 0 ? <Empty>未解決事項はありません。</Empty> : <ul className="list">{loops.data.openLoops.map((a: any) => <li key={a.id}><button className="check" onClick={() => toggle.mutate(a)} /><div className="grow"><div className="title">{a.title}</div><div className="meta">{a.goalTitle ?? a.projectTitle ?? ""} {a.dueDate ?? ""}</div></div></li>)}</ul>}</Card>
+          <Card title={`Open Loops (${loops.data.openLoops.length})`}>{loops.data.openLoops.length === 0 ? <Empty>未解決事項はありません。</Empty> : <ul className="list">{loops.data.openLoops.map((a: any) => <li key={a.id}><button className="check" aria-label="完了にする" onClick={() => toggle.mutate(a)} /><div className="grow"><div className="title">{a.title}</div><div className="meta">{a.goalTitle ?? a.projectTitle ?? ""} {a.dueDate ?? ""}</div></div></li>)}</ul>}</Card>
           <Card title={`Waiting (${loops.data.waiting.length + loops.data.waitingProjects.length + loops.data.waitingOnOthers.length})`}>
             <ul className="list">
-              {loops.data.waiting.map((a: any) => <li key={a.id}><button className="check" onClick={() => toggle.mutate(a)} /><div className="grow"><div className="title">⏳ {a.title}</div><div className="meta">waiting on {a.waitingOn}</div></div></li>)}
+              {loops.data.waiting.map((a: any) => <li key={a.id}><button className="check" aria-label="完了にする" onClick={() => toggle.mutate(a)} /><div className="grow"><div className="title">⏳ {a.title}</div><div className="meta">waiting on {a.waitingOn}</div></div></li>)}
               {loops.data.waitingProjects.map((p: any) => <li key={p.id}><div className="grow"><Link to={`/projects/${p.id}`} className="title">▣ {p.title}</Link><div className="meta">Project waiting · {p.nextAction}</div></div></li>)}
               {loops.data.waitingOnOthers.map((p: any) => <li key={p.id}><div className="grow"><div className="title">☺ {p.personName}: {p.text}</div><div className="meta">返事待ち {p.dueDate ?? ""}</div></div></li>)}
             </ul>
@@ -49,7 +49,7 @@ export default function Actions() {
         </div>
       )}
       {tab !== "loops" && (q.isLoading ? <Spinner /> : q.data!.actions.length === 0 ? <Empty>Action はありません。</Empty> : (
-        <Card><ul className="list">{q.data!.actions.map((a) => <li key={a.id} style={{ background: a.id === highlight ? "var(--accent-soft)" : undefined }}><button className={`check${a.status === "done" ? " done" : ""}`} onClick={() => toggle.mutate(a)}>{a.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">{a.title}</div><div className="meta row">{a.kind !== "task" && <Badge>{a.kind}</Badge>}{a.dueDate && <Badge tone={a.dueDate < today && a.status === "open" ? "bad" : "neutral"}>{a.dueDate}</Badge>}{a.goalTitle && <Link to={`/goals/${a.goalId}`}>◎ {a.goalTitle}</Link>}{a.projectTitle && <Link to={`/projects/${a.projectId}`}>▣ {a.projectTitle}</Link>}{a.personName && <Link to={`/people/${a.personId}`}>☺ {a.personName}</Link>}</div></div>{a.status === "open" && <Button size="sm" variant="ghost" onClick={() => drop.mutate(a.id)}>やめる</Button>}</li>)}</ul></Card>
+        <Card><ul className="list">{q.data!.actions.map((a) => <li key={a.id} style={{ background: a.id === highlight ? "var(--accent-soft)" : undefined }}><button className={`check${a.status === "done" ? " done" : ""}`} aria-label="完了切替" onClick={() => toggle.mutate(a)}>{a.status === "done" ? "✓" : ""}</button><div className="grow"><div className="title">{a.title}</div><div className="meta row">{a.kind !== "task" && <Badge>{a.kind}</Badge>}{a.dueDate && <Badge tone={a.dueDate < today && a.status === "open" ? "bad" : "neutral"}>{a.dueDate}</Badge>}{a.goalTitle && <Link to={`/goals/${a.goalId}`}>◎ {a.goalTitle}</Link>}{a.projectTitle && <Link to={`/projects/${a.projectId}`}>▣ {a.projectTitle}</Link>}{a.personName && <Link to={`/people/${a.personId}`}>☺ {a.personName}</Link>}</div></div>{a.status === "open" && <Button size="sm" variant="ghost" onClick={() => drop.mutate(a.id)}>やめる</Button>}</li>)}</ul></Card>
       ))}
     </div>
   );

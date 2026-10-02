@@ -1,6 +1,6 @@
 /* Northstar — design tokens & layout. Quiet, premium, intelligent. */
 :root {
-  --bg: #f6f7fa; --bg-elev: #ffffff; --bg-sunken: #eef0f5; --fg: #121622; --fg-muted: #5b6475; --fg-faint: #8a93a6;
+  --bg: #f6f7fa; --bg-elev: #ffffff; --bg-sunken: #eef0f5; --fg: #121622; --fg-muted: #5b6475; --fg-faint: #667085;
   --line: #e2e6ee; --accent: #1f3a93; --accent-fg: #ffffff; --accent-soft: #e8edfb; --star: #e5b33b;
   --good: #1f7a4d; --good-soft: #e3f3ea; --warn: #9a6400; --warn-soft: #fff3d6; --bad: #b3261e; --bad-soft: #fde7e5;
   --radius: 12px; --radius-sm: 8px; --shadow: 0 1px 2px rgba(18,22,34,.05), 0 8px 24px -16px rgba(18,22,34,.25);
@@ -9,12 +9,13 @@
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #0f1420; --bg-elev: #161c2b; --bg-sunken: #0b0f19; --fg: #e8ecf5; --fg-muted: #a3acbf; --fg-faint: #6f7a92; --line: #273047; --accent: #7f9cf5; --accent-fg: #0b1020; --accent-soft: #1c2742; --good: #4cc38a; --good-soft: #153226; --warn: #f0b429; --warn-soft: #3a2d10; --bad: #ff6b61; --bad-soft: #3b1816; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6); }
+  :root { --bg: #0f1420; --bg-elev: #161c2b; --bg-sunken: #0b0f19; --fg: #e8ecf5; --fg-muted: #a3acbf; --fg-faint: #8f9ab0; --line: #273047; --accent: #7f9cf5; --accent-fg: #0b1020; --accent-soft: #1c2742; --good: #4cc38a; --good-soft: #153226; --warn: #f0b429; --warn-soft: #3a2d10; --bad: #ff6b61; --bad-soft: #3b1816; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6); }
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+p a, .notice a, .meta a, .small a, .empty a, li .meta a { text-decoration: underline; text-underline-offset: 2px; }
 h1, h2, h3 { margin: 0; font-weight: 650; letter-spacing: -0.01em; }
 h1 { font-size: 1.45rem; } h2 { font-size: 1.05rem; } h3 { font-size: 0.95rem; }
 p { margin: 0 0 .5rem; }

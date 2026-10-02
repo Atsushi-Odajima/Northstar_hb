@@ -20,7 +20,7 @@ test.describe("Accessibility (axe)", () => {
     for (const p of PAGES) {
       await page.goto(p);
       await page.waitForLoadState("networkidle");
-      const r = await new AxeBuilder({ page }).disableRules(["color-contrast"]).analyze();
+      const r = await new AxeBuilder({ page }).analyze();
       const bad = r.violations.filter((v) => ["serious", "critical"].includes(v.impact ?? ""));
       if (bad.length) report.push(`${p}: ${bad.map((v) => `${v.id}(${v.nodes.length})`).join(", ")}`);
     }

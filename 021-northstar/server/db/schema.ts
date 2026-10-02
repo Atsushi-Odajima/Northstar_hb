@@ -514,6 +514,22 @@ CREATE TRIGGER search_docs_au AFTER UPDATE ON search_docs BEGIN
 END;
 `,
   },
+  {
+    version: 2,
+    name: "perf_indexes",
+    sql: `
+CREATE INDEX IF NOT EXISTS actions_ws_done ON actions(workspace_id, done_at);
+CREATE INDEX IF NOT EXISTS outcomes_ws_achieved ON outcomes(workspace_id, achieved_at);
+CREATE INDEX IF NOT EXISTS knowledge_ws_applied ON knowledge_items(workspace_id, applied_at);
+CREATE INDEX IF NOT EXISTS knowledge_ws_captured ON knowledge_items(workspace_id, captured_at);
+CREATE INDEX IF NOT EXISTS decision_reviews_ws_date ON decision_reviews(workspace_id, reviewed_at);
+CREATE INDEX IF NOT EXISTS decisions_ws_decided ON decisions(workspace_id, decided_at);
+CREATE INDEX IF NOT EXISTS contacts_ws_date ON contacts(workspace_id, date);
+CREATE INDEX IF NOT EXISTS reviews_ws_kind_start ON reviews(workspace_id, kind, period_start);
+CREATE INDEX IF NOT EXISTS people_ws_lastcontact ON people(workspace_id, importance, last_contact_at);
+CREATE INDEX IF NOT EXISTS calendar_ws_category ON calendar_events(workspace_id, category, start_at);
+`,
+  },
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS[MIGRATIONS.length - 1].version;

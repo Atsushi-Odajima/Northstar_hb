@@ -14,7 +14,7 @@
 | 8 AI Chief of Staff | 完了 | ai/gateway・retrieval・chief・drafts・providers, web Chief/Settings AI |
 | 9 Connector/MCP | 完了 | connectors/registry (ICS 実装、他 interface), mcp/tools・http・stdio |
 | 10 Export/Backup/Offline/Notifications/Security | 完了 | modules/transfer・notifications, web offline queue, secureHeaders/CSRF/rate limit |
-| 11 E2E/Perf/A11y | E2E 実施（Chromium エミュレーション）、Perf 実施、A11y は手動基準 | e2e/, scripts/perf.ts, TEST_REPORT.md |
+| 11 E2E/Perf/A11y | E2E 9 シナリオ × 4 デバイス（Chromium エミュレーション）、Perf（10 年分生成データ）、axe a11y（PC/iPhone）実施 | e2e/, scripts/perf.ts, docs/TEST_REPORT.md, docs/PERF_RESULTS.md |
 | 12 Branding/Docs/Deploy | 完了（deploy は手順のみ、実公開なし） | branding/, docs/, Dockerfile, render.yaml, 購入者向け資料/ |
 
 ## 完成条件（46 章）チェック
